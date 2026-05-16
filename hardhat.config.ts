@@ -7,6 +7,7 @@ const config: HardhatUserConfig = {
   solidity: "0.8.28",
   networks: {
     arcTestnet: {
+      type: "http",
       url: process.env.NEXT_PUBLIC_ARC_RPC_URL ||
            "https://rpc.arc-testnet.network",
       accounts: process.env.DEPLOYER_PRIVATE_KEY
