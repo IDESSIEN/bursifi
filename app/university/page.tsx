@@ -355,10 +355,11 @@ const removeRow = (i: number) => setFees(f => f.filter((_, idx) => idx !== i));
 
 // ── Academic Calendar Editor ──────────────────────────────────────────────────
 
-function TermEditor({ terms, setTerms }) {
+interface Term { label: string; start: string; end: string; releaseDate: string; }
+function TermEditor({ terms, setTerms }: { terms: Term[], setTerms: (t: Term[] | ((prev: Term[]) => Term[])) => void }) {
   const addTerm = () => setTerms(t => [...t, { label: "", start: "", end: "", releaseDate: "" }]);
-  const updateTerm = (i, key, val) => setTerms(t => t.map((r, idx) => idx === i ? { ...r, [key]: val } : r));
-  const removeTerm = (i) => setTerms(t => t.filter((_, idx) => idx !== i));
+  const updateTerm = (i: number, key: string, val: string) => setTerms(t => t.map((r, idx) => idx === i ? { ...r, [key]: val } : r));
+  const removeTerm = (i: number) => setTerms(t => t.filter((_, idx) => idx !== i));
 
   return (
     <div>
