@@ -407,7 +407,7 @@ function EnrollmentUploader() {
   const [uploaded, setUploaded] = useState(null);
   const fileRef = useRef(null);
 
-  const handleFile = (file) => {
+  const handleFile = (file: File) => {
     if (!file) return;
     const reader = new FileReader();
     reader.onload = (e) => {
