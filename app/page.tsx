@@ -175,7 +175,7 @@ function SendView({onPaymentAdded, address, connectorClient}: {onPaymentAdded: (
   const grouped=filtered.reduce((acc: Record<string,typeof filtered>,s)=>{if(!acc[s.country])acc[s.country]=[];acc[s.country].push(s);return acc},{} as Record<string,typeof filtered>);
 
   useEffect(()=>{
-    const h=(e)=>{if(dropRef.current&&!dropRef.current.contains(e.target))setOpen(false)};
+    const h=(e: MouseEvent)=>{if(dropRef.current&&!dropRef.current.contains(e.target as Node))setOpen(false)};
     document.addEventListener("mousedown",h);
     return()=>document.removeEventListener("mousedown",h);
   },[]);
