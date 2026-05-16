@@ -374,7 +374,7 @@ function SendView({onPaymentAdded, address, connectorClient}){
             ))}
           </div>
           <div style={{padding:"11px 14px",background:"rgba(0,229,160,0.04)",border:"1px solid rgba(0,229,160,0.12)",borderRadius:10,marginBottom:20,fontSize:13,color:"#00E5A0"}}>
-            🔒 Funds locked in <code style={{fontFamily:"'JetBrains Mono',monospace",fontSize:11,background:"rgba(0,229,160,0.1)",padding:"1px 6px",borderRadius:4}}>EduCreditEscrow</code> on Arc until semester release date.
+            🔒 Funds locked in <code style={{fontFamily:"'JetBrains Mono',monospace",fontSize:11,background:"rgba(0,229,160,0.1)",padding:"1px 6px",borderRadius:4}}>BursifiEscrow</code> on Arc until semester release date.
           </div>
           <div style={{display:"flex",gap:10}}>
             <button className="btn-ghost" onClick={()=>setStep(1)}>← Back</button>
@@ -481,7 +481,7 @@ function HistoryView({payments}){
     const link = document.createElement("a");
 
     link.href = url;
-    link.download = `educredit-transaction-history-${new Date().toISOString().slice(0,10)}.csv`;
+    link.download = `Bursifi-transaction-history-${new Date().toISOString().slice(0,10)}.csv`;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -541,7 +541,7 @@ function HistoryView({payments}){
           <div>
             <div style={{fontWeight:700,marginBottom:4,color:"#F0EDE8"}}>Arc SDK Integration</div>
             <div style={{fontSize:13,color:"#5A5E6B",lineHeight:1.7}}>
-              Each payment calls <code style={{fontFamily:"'JetBrains Mono',monospace",fontSize:11,background:"rgba(0,229,160,0.1)",color:"#00E5A0",padding:"1px 6px",borderRadius:4}}>appKit.bridge()</code> to move USDC cross-chain, then invokes <code style={{fontFamily:"'JetBrains Mono',monospace",fontSize:11,background:"rgba(0,229,160,0.1)",color:"#00E5A0",padding:"1px 6px",borderRadius:4}}>EduCreditEscrow.deposit()</code> on Arc.
+              Each payment calls <code style={{fontFamily:"'JetBrains Mono',monospace",fontSize:11,background:"rgba(0,229,160,0.1)",color:"#00E5A0",padding:"1px 6px",borderRadius:4}}>appKit.bridge()</code> to move USDC cross-chain, then invokes <code style={{fontFamily:"'JetBrains Mono',monospace",fontSize:11,background:"rgba(0,229,160,0.1)",color:"#00E5A0",padding:"1px 6px",borderRadius:4}}>BursifiEscrow.deposit()</code> on Arc.
             </div>
           </div>
         </div>
@@ -550,7 +550,7 @@ function HistoryView({payments}){
   );
 }
 
-export default function EduCredit(){
+export default function Bursifi(){
   const [view,setView]=useState(0);
   const { data: connectorClient } = useConnectorClient();
   const { address } = useAccount();
@@ -574,7 +574,7 @@ export default function EduCredit(){
             <div style={{display:"flex",alignItems:"center",gap:10,marginRight:40}}>
               <div style={{width:32,height:32,borderRadius:8,background:"linear-gradient(135deg,#C8A96E 0%,#8A6F3E 100%)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:16}}>🎓</div>
               <div>
-                <div style={{fontWeight:800,fontSize:17,letterSpacing:"-0.02em",color:"#F0EDE8"}}>EduCredit</div>
+                <div style={{fontWeight:800,fontSize:17,letterSpacing:"-0.02em",color:"#F0EDE8"}}>Bursifi</div>
                 <div style={{fontSize:10,color:"#00996A",fontWeight:600,letterSpacing:"0.1em"}}>ON ARC NETWORK</div>
               </div>
             </div>
@@ -657,7 +657,7 @@ export default function EduCredit(){
 
         <footer style={{borderTop:"1px solid rgba(255,255,255,0.06)",marginTop:48}}>
           <div style={{maxWidth:1080,margin:"0 auto",padding:"20px 24px",display:"flex",justifyContent:"space-between",alignItems:"center"}}>
-            <div style={{fontSize:12,color:"#5A5E6B"}}>© 2025 EduCredit · Built on Arc Network</div>
+            <div style={{fontSize:12,color:"#5A5E6B"}}>© 2025 Bursifi · Built on Arc Network</div>
             <div style={{display:"flex",gap:20,alignItems:"center"}}>
               {["Circle CCTP","App Kit","Arc Testnet"].map((t,i)=>[
                 <span key={t} style={{fontSize:12,color:"#5A5E6B"}}>{t}</span>,
