@@ -405,7 +405,7 @@ function TermEditor({ terms, setTerms }: { terms: Term[], setTerms: (t: Term[] |
 function EnrollmentUploader() {
   const [dragging, setDragging] = useState(false);
   const [uploaded, setUploaded] = useState<{ name: string; count: number; rows: string[] } | null>(null);
-  const fileRef = useRef(null);
+  const fileRef = useRef<HTMLInputElement>(null);
 
   const handleFile = (file: File) => {
     if (!file) return;
@@ -430,7 +430,7 @@ function EnrollmentUploader() {
           onDragLeave={() => setDragging(false)}
           onDrop={e => { e.preventDefault(); setDragging(false); handleFile(e.dataTransfer.files[0]); }}
           onClick={() => fileRef.current?.click()}>
-          <input ref={fileRef} type="file" accept=".csv" style={{ display: "none" }} onChange={e => handleFile(e.target.files[0])} />
+          <input ref={fileRef} type="file" accept=".csv" style={{ display: "none" }} onChange={e => { if(e.target.files?.[0]) handleFile(e.target.files[0]); }} />
           <div style={{ fontSize: 28, marginBottom: 10 }}>📋</div>
           <div style={{ fontWeight: 600, fontSize: 14, color: T.text, marginBottom: 4 }}>Drop your enrollment CSV here</div>
           <div style={{ fontSize: 13, color: T.muted }}>Or click to browse. Max 10MB. CSV format only.</div>
