@@ -476,7 +476,7 @@ function EnrollmentUploader() {
 
 // ── Registration Form (multi-step) ────────────────────────────────────────────
 
-function RegistrationForm({ onComplete }) {
+function RegistrationForm({ onComplete }: { onComplete: () => void }) {
   const [step, setStep] = useState(0);
   const [form, setForm] = useState({ name:"", country:"", city:"", website:"", accreditationBody:"", adminName:"", adminTitle:"", adminEmail:"", adminPhone:"" });
   const [faculties, setFaculties] = useState([]);
