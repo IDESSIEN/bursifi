@@ -152,7 +152,7 @@ const SEED_UNIS = [
 
 // ── Wallet Approval Modal ─────────────────────────────────────────────────────
 
-function WalletApprovalModal({ onClose, onApprove }) {
+function WalletApprovalModal({ onClose, onApprove }: { onClose: () => void, onApprove: (wallet: string) => void }) {
   const [walletAddr, setWalletAddr] = useState("");
   const [confirmAddr, setConfirmAddr] = useState("");
   const [step, setStep] = useState(0); // 0=entry, 1=sign, 2=review, 3=confirm, 4=live
