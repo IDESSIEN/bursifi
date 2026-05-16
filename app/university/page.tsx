@@ -411,7 +411,7 @@ function EnrollmentUploader() {
     if (!file) return;
     const reader = new FileReader();
     reader.onload = (e) => {
-      const rows = e.target.result.split("\n").filter(Boolean).slice(1);
+      const rows = (e.target?.result as string)?.split("\n").filter(Boolean).slice(1) ?? [];
       setUploaded({ name: file.name, count: rows.length, rows: rows.slice(0, 5) });
     };
     reader.readAsText(file);
