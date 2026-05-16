@@ -172,7 +172,7 @@ function SendView({onPaymentAdded, address, connectorClient}: {onPaymentAdded: (
     s.country.toLowerCase().includes(search.toLowerCase())||
     s.city.toLowerCase().includes(search.toLowerCase())
   );
-  const grouped=filtered.reduce((acc,s)=>{if(!acc[s.country])acc[s.country]=[];acc[s.country].push(s);return acc},{});
+  const grouped=filtered.reduce((acc: Record<string,typeof filtered>,s)=>{if(!acc[s.country])acc[s.country]=[];acc[s.country].push(s);return acc},{} as Record<string,typeof filtered>);
 
   useEffect(()=>{
     const h=(e)=>{if(dropRef.current&&!dropRef.current.contains(e.target))setOpen(false)};
