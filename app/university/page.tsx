@@ -304,10 +304,11 @@ function WalletApprovalModal({ onClose, onApprove }: { onClose: () => void, onAp
 
 // ── Fee Schedule Editor ───────────────────────────────────────────────────────
 
-function FeeScheduleEditor({ fees, setFees }) {
+interface FeeRow { faculty: string; level: string; amount: string; currency: string; }
+function FeeScheduleEditor({ fees, setFees }: { fees: FeeRow[], setFees: (f: FeeRow[] | ((prev: FeeRow[]) => FeeRow[])) => void }) {
   const addRow = () => setFees(f => [...f, { faculty: "", level: "All Levels", amount: "", currency: "USD" }]);
-  const updateRow = (i, key, val) => setFees(f => f.map((r, idx) => idx === i ? { ...r, [key]: val } : r));
-  const removeRow = (i) => setFees(f => f.filter((_, idx) => idx !== i));
+  const updateRow = (i: number, key: string, val: string) => setFees(f => f.map((r, idx) => idx === i ? { ...r, [key]: val } : r));
+const removeRow = (i: number) => setFees(f => f.filter((_, idx) => idx !== i));
 
   return (
     <div>
