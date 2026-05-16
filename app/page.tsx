@@ -1,3 +1,5 @@
+// Bursifi v1.0 - Production build
+"use client";
 "use client";
 import { useState, useEffect, useRef } from "react";
 import { bridgeSchoolFees, CHAIN_IDS } from '@/lib/bridge';
