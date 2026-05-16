@@ -139,7 +139,7 @@ const INITIAL_PAYMENTS=[
   {id:"0xabc3",school:"Makerere University",student:"Fatuma Aidah",amount:600,semester:"Semester 2 — Jun 2025",status:"scheduled",chain:"Solana → Arc",date:"Jun 1, 2025",txHash:"—"},
 ];
 
-function StepBar({step}){
+function StepBar({step}: {step: number}){
   const steps=["University","Details","Bridge","Done"];
   return(
     <div style={{display:"flex",alignItems:"center",gap:6,marginBottom:28}}>
