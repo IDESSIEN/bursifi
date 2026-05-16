@@ -487,7 +487,7 @@ function RegistrationForm({ onComplete }: { onComplete: () => void }) {
   const [walletAddr, setWalletAddr] = useState("");
   const [submitting, setSubmitting] = useState(false);
 
-  const set = (key, val) => setForm(f => ({ ...f, [key]: val }));
+  const set = (key: string, val: string) => setForm(f => ({ ...f, [key]: val }));
 
   const STEPS = [
     { label: "Institution", icon: "🏛️" },
