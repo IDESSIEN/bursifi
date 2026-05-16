@@ -387,7 +387,7 @@ function TermEditor({ terms, setTerms }: { terms: Term[], setTerms: (t: Term[] |
                 {[["start", "Semester Start"], ["end", "Semester End"], ["releaseDate", "Escrow Release Date"]].map(([key, label]) => (
                   <div key={key}>
                     <label className="field-label">{label}</label>
-                    <input className="dark-input" type="date" value={term[key]} onChange={e => updateTerm(i, key, e.target.value)} style={{ colorScheme: "dark" }} />
+                   <input className="dark-input" type="date" value={term[key as keyof Term]} onChange={e => updateTerm(i, key, e.target.value)} style={{ colorScheme: "dark" }} />
                     {key === "releaseDate" && <span className="field-hint">Funds release automatically on this date</span>}
                   </div>
                 ))}
