@@ -404,7 +404,7 @@ function TermEditor({ terms, setTerms }: { terms: Term[], setTerms: (t: Term[] |
 
 function EnrollmentUploader() {
   const [dragging, setDragging] = useState(false);
-  const [uploaded, setUploaded] = useState(null);
+  const [uploaded, setUploaded] = useState<{ name: string; count: number; rows: string[] } | null>(null);
   const fileRef = useRef(null);
 
   const handleFile = (file: File) => {
