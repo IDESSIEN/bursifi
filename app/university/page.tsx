@@ -479,7 +479,7 @@ function EnrollmentUploader() {
 function RegistrationForm({ onComplete }: { onComplete: (data?: unknown) => void }) {
   const [step, setStep] = useState(0);
   const [form, setForm] = useState({ name:"", country:"", city:"", website:"", accreditationBody:"", adminName:"", adminTitle:"", adminEmail:"", adminPhone:"" });
-  const [faculties, setFaculties] = useState([]);
+  const [faculties, setFaculties] = useState<string[]>([]);
   const [fees, setFees] = useState([]);
   const [terms, setTerms] = useState([]);
   const [showWallet, setShowWallet] = useState(false);
