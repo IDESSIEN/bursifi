@@ -156,7 +156,7 @@ function StepBar({step}: {step: number}){
   );
 }
 
-function SendView({onPaymentAdded, address, connectorClient}){
+function SendView({onPaymentAdded, address, connectorClient}: {onPaymentAdded: (p: any) => void, address: string | undefined, connectorClient: any}){
   const [step,setStep]=useState(0);
   const [form,setForm]=useState({school:"",student:"",semester:"",amount:"",fromChain:"base",note:""});
   const [loading,setLoading]=useState(false);
