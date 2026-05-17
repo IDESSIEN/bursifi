@@ -112,6 +112,7 @@ const SCHOOLS: School[] = [
 const CHAINS=[
   {id:"ethereum",name:"Ethereum",icon:"⟠"},
   {id:"base",name:"Base",icon:"🔵"},
+  { id:"monad",    name:"Monad", icon:"🟣" },
   {id:"solana",name:"Solana",icon:"◎"},
   {id:"arc",name:"Arc",icon:"⬡"},
 ];

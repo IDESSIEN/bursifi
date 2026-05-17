@@ -5,6 +5,7 @@ export const CHAIN_IDS: Record<string, number> = {
   ethereum: 1,
   base: 8453,
   arbitrum: 42161,
+  monad:    10143,
   arc: arcTestnet.id,
 };
 
